@@ -2,7 +2,7 @@ import { api } from './api.js';
 import 'dotenv/config';
 
 let tokenAdminEmCache = null;
-let tokenUsuarioEmCache = null;
+const tokensDeUsuarioEmCache = new Map();
 
 async function fazerLogin(email, senha) {
     const loginResposta = await api()
@@ -28,11 +28,12 @@ export async function comTokenDeUsuario(
     email = process.env.ALUNO_EMAIL || 'ariane.pereto@example.com',
     senha = process.env.ALUNO_SENHA || '123456'
 ) {
-    if (!tokenUsuarioEmCache) {
-        tokenUsuarioEmCache = await fazerLogin(email, senha);
+    const chave = `${email}:${senha}`;
+    if (!tokensDeUsuarioEmCache.has(chave)) {
+        tokensDeUsuarioEmCache.set(chave, await fazerLogin(email, senha));
     }
 
-    return `Bearer ${tokenUsuarioEmCache}`;
+    return `Bearer ${tokensDeUsuarioEmCache.get(chave)}`;
 }
 
 export async function getToken(emailUser, passUser) {

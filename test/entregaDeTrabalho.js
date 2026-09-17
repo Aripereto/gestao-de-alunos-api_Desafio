@@ -18,6 +18,7 @@ describe('Entrega de Trabalho', () => {
                 .post('/api/admin/alunos')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', await comTokenDeAdmin())
+                //.set('Authorization', await comTokenDeUsuario())
                 .send(dadosAluno);
 
             expect(cadastroAlunoResposta.status).to.equal(201);
