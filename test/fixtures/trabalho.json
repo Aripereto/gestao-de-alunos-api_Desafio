@@ -1,0 +1,33 @@
+[
+    {
+        "testTitle": "Validar que o aluno seja cadastrado com sucesso",
+        "cenario": "cadastro",
+        "dadosAluno": {
+            "nome": "Ariane Pereto",
+            "email": "ariane.pereto@example.com",
+            "matricula": "Ari123456",
+            "senha": "123456"
+        },
+        
+        "statusCodeEsperado": 201
+
+    },
+
+    {
+        "testTitle": "Validar que o aluno entregue o trabalho com sucesso",
+        "cenario": "entrega",
+        "dadosAluno": {
+            "nome": "Ariane Pereto",
+            "email": "ariane.pereto@example.com",
+            "matricula": "Ari123456",
+            "senha": "123456"
+        },
+            "dadosTrabalho": {
+                "disciplinaId": "disciplina-programacao-web",
+                "titulo": "Desafio de API - Lista de Exercícios",
+                "descricao": "Resolução dos exercícios da aula de API"
+            },
+            
+            "statusCodeEsperado": 201
+        }
+]
