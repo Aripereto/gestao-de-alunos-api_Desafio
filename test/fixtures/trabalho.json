@@ -15,7 +15,7 @@
 
     {
         "testTitle": "Validar que o aluno entregue o trabalho com sucesso",
-        "cenario": "entrega",
+        "cenario": "entrega de trabalho",
         "dadosAluno": {
             "nome": "Ariane Pereto",
             "email": "ariane.pereto@example.com",
